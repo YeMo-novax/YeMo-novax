@@ -1,1 +1,712 @@
 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohammad Faizi - Lebenslauf</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1f35 0%, #2d3561 50%, #1a1f35 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 31, 53, 0.92);
+            backdrop-filter: blur(12px);
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            border-bottom: 2px solid rgba(99, 102, 241, 0.4);
+        }
+
+        .nav-box {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 600;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav a:hover {
+            background: rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.5);
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .main {
+            margin-top: 90px;
+            padding: 60px 200px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .box {
+            margin-bottom: 60px;
+            scroll-margin-top: 110px;
+            background: rgba(45, 53, 97, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 45px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(99, 102, 241, 0.25);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        #startseite {
+            text-align: center;
+            padding: 150px 0;
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            box-shadow: none;
+            border: none;
+        }
+
+        .box h1 {
+            color: white;
+            margin-bottom: 35px;
+            font-size: 40px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .box h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #6366f1, #3b82f6);
+            border-radius: 2px;
+        }
+
+        #startseite h1 {
+            font-size: 100px;
+            color: white;
+            text-shadow: 0 8px 30px rgba(99, 102, 241, 0.5);
+            animation: fadeInScale 1.2s ease-out;
+        }
+
+        #startseite h1::after {
+            display: none;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .bild {
+            position: relative;
+            width: 320px;
+            height: 320px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 45px auto;
+            border: 4px solid rgba(99, 102, 241, 0.5);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4),
+                        0 0 0 10px rgba(99, 102, 241, 0.1);
+        }
+
+        .bild img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .bild::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(59, 130, 246, 0.3));
+        }
+
+        .bild h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 2rem;
+            text-align: center;
+            z-index: 1;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.7);
+        }
+
+        .profil-bild {
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 35px;
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+            display: block;
+            border: 4px solid #6366f1;
+        }
+
+        .info {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(59, 130, 246, 0.18));
+            backdrop-filter: blur(8px);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 18px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+            text-align: left;
+            border-left: 4px solid #6366f1;
+            transition: all 0.3s ease;
+            color: white;
+            border: 1px solid rgba(99, 102, 241, 0.25);
+        }
+
+        .info:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .info strong {
+            color: #c7d2fe;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .info p {
+            color: rgba(255, 255, 255, 0.92);
+            line-height: 1.7;
+        }
+
+        .info a {
+            color: #93c5fd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .info a:hover {
+            color: #bfdbfe;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+            margin-top: 28px;
+        }
+
+        .item {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.22), rgba(59, 130, 246, 0.22));
+            backdrop-filter: blur(8px);
+            padding: 32px;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            color: white;
+            transition: all 0.35s ease;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 65%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .item:hover::before {
+            opacity: 1;
+        }
+
+        .item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 45px rgba(99, 102, 241, 0.4);
+            border-color: rgba(99, 102, 241, 0.5);
+        }
+
+        .item strong {
+            color: white;
+            font-size: 21px;
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .item p {
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 15px;
+        }
+
+        p {
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .liste {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.18), rgba(59, 130, 246, 0.18));
+            backdrop-filter: blur(8px);
+            padding: 20px 25px;
+            margin-bottom: 15px;
+            border-left: 4px solid #6366f1;
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+            color: white;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(99, 102, 241, 0.25);
+        }
+
+        .liste:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.3);
+            border-color: rgba(99, 102, 241, 0.4);
+        }
+
+        .liste p {
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .liste strong {
+            font-size: 17px;
+            color: #c7d2fe;
+            font-weight: 700;
+        }
+
+        .kontakt {
+            background: linear-gradient(135deg, #1a1f35 0%, #2d3561 100%);
+            padding: 80px 0;
+            margin-top: 70px;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.4);
+            border-top: 2px solid rgba(99, 102, 241, 0.3);
+        }
+
+        .kontakt-box {
+            padding: 0 200px;
+        }
+
+        .kontakt-box h1 {
+            color: white;
+            font-size: 48px;
+            margin-bottom: 45px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .kontakt .info {
+            background: rgba(45, 53, 97, 0.5);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .kontakt p {
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 17px;
+        }
+
+        .kontakt a {
+            color: #93c5fd;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .kontakt a:hover {
+            color: #bfdbfe;
+        }
+
+        .links {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .links a {
+            color: #93c5fd;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 17px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .links a:hover {
+            color: #bfdbfe;
+            background: rgba(99, 102, 241, 0.15);
+        }
+
+        .qr {
+            width: 170px;
+            height: auto;
+            margin-top: 22px;
+            border-radius: 14px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            display: inline-block;
+            border: 3px solid rgba(99, 102, 241, 0.3);
+            background: white;
+            padding: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .main {
+                padding: 40px 20px;
+                margin-top: 80px;
+            }
+            
+            .box {
+                padding: 30px;
+                margin-bottom: 45px;
+            }
+            
+            .kontakt-box {
+                padding: 0 20px;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            
+            .nav {
+                padding: 12px 0;
+            }
+
+            .nav-box {
+                gap: 10px;
+                overflow-x: auto;
+                padding: 0 15px;
+                scrollbar-width: none;
+            }
+
+            .nav-box::-webkit-scrollbar {
+                display: none;
+            }
+
+            .nav a {
+                font-size: 13px;
+                padding: 8px 14px;
+                white-space: nowrap;
+            }
+
+            .bild {
+                width: 260px;
+                height: 260px;
+                margin: 35px auto;
+            }
+
+            .bild h1 {
+                font-size: 1.6rem;
+            }
+
+            .profil-bild {
+                width: 160px;
+                height: 160px;
+            }
+
+            #startseite {
+                padding: 120px 20px;
+                min-height: 450px;
+            }
+
+            #startseite h1 {
+                font-size: 60px;
+            }
+
+            .box h1 {
+                font-size: 32px;
+                margin-bottom: 28px;
+            }
+
+            .kontakt-box h1 {
+                font-size: 38px;
+                margin-bottom: 35px;
+            }
+
+            .info {
+                padding: 22px;
+                margin-bottom: 16px;
+            }
+
+            .liste {
+                padding: 18px 22px;
+                margin-bottom: 14px;
+            }
+
+            .item {
+                padding: 28px;
+            }
+
+            p {
+                font-size: 15px;
+            }
+
+            .qr {
+                width: 145px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main {
+                padding: 30px 15px;
+            }
+
+            .box {
+                padding: 25px;
+            }
+
+            #startseite h1 {
+                font-size: 45px;
+            }
+
+            .box h1 {
+                font-size: 28px;
+            }
+
+            .bild {
+                width: 220px;
+                height: 220px;
+            }
+
+            .bild h1 {
+                font-size: 1.4rem;
+            }
+
+            .profil-bild {
+                width: 140px;
+                height: 140px;
+            }
+
+            .nav a {
+                font-size: 12px;
+                padding: 7px 12px;
+            }
+
+            .qr {
+                width: 130px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-box">
+            <a onclick="scrollZuSektion('startseite')">Startseite</a>
+            <a onclick="scrollZuSektion('personalien')">Personalien</a>
+            <a onclick="scrollZuSektion('profil')">Profil</a>
+            <a onclick="scrollZuSektion('kompetenzen')">Kompetenzen</a>
+            <a onclick="scrollZuSektion('sprache')">Sprache</a>
+            <a onclick="scrollZuSektion('freizeit')">Freizeit</a>
+            <a onclick="scrollZuSektion('schnupperlehren')">Schnupperlehren</a>
+            <a onclick="scrollZuSektion('referenzen')">Referenzen</a>
+            <a onclick="scrollZuSektion('kontakt')">Kontakt</a>
+        </div>
+    </nav>
+
+    <div class="main">
+        <div id="startseite" class="box">
+            <h1>Willkommen</h1>
+        </div>
+
+        <div class="bild">
+            <img src="Image (3).jpg" alt="Mohammad Faizi">
+            <h1>Mohammad Faizi</h1>
+        </div>
+
+        <div id="personalien" class="box">
+            <h1>Personalien</h1>
+            <div class="info">
+                <p><strong>Name:</strong> Mohammad Faizi</p>
+            </div>
+            <div class="info">
+                <p><strong>Geburtstag:</strong> 01.01.2012</p>
+            </div>
+            <div class="info">
+                <p><strong>Schulort:</strong> <a href="https://www.rj.sg.ch" target="_blank" rel="noopener">Schule Jona Weiden</a></p>
+            </div>
+            <div class="info">
+                <p><strong>Niveau:</strong> 2 Sekundarstufe (Niveau A)</p>
+            </div>
+        </div>
+
+        <div id="profil" class="box">
+            <h1>Profil</h1>
+            <img src="Image (3).jpg" alt="Mohammad Faizi" class="profil-bild">
+            <p>Ich bin ein sehr konzentrierter Schüler in technischen Bereichen und passe immer gut auf. 
+                Ich habe in der 5. Klasse angefangen mit meinem Freund zu programmieren. Wir haben oft Hacks programmiert in Computerspielen
+                und sie haben oft funktioniert. Ich liebe es zu programmieren und will viel mehr lernen.
+                <br><br>Ich möchte mal ein bekannter Informatiker werden.
+            </p>
+        </div>
+
+        <div id="kompetenzen" class="box">
+            <h1>Kompetenzen</h1>
+            <div class="grid">
+                <div class="item">
+                    <p><strong>Programmierung</strong><br>Grundkenntnisse in verschiedenen Sprachen (Programmiersprachen)</p>
+                </div>
+                <div class="item">
+                    <p><strong>Technisches Verständnis</strong><br>Gutes Verständnis für Computer und Systeme</p>
+                </div>
+                <div class="item">
+                    <p><strong>Problemlösung</strong><br>Fähigkeit, technische Probleme zu lösen</p>
+                </div>
+                <div class="item">
+                    <p><strong>Zuverlässigkeit</strong><br>Verantwortungsbewusstes und sorgfältiges Arbeiten</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="schnupperlehren" class="box">
+            <h1>Schnupperlehren</h1>
+            <div class="liste">
+                <p><strong>KV/in EFZ (Kaufmann/Kauffrau)</strong><br>
+                Regionales Ausbildungs Zentrum (RAU)</p>
+            </div>
+            <div class="liste">
+                <p><strong>Informatik - Applikationsentwicklung/in EFZ / ICT-Fachmann/in EFZ</strong><br>
+                Regionales Ausbildungs Zentrum (RAU)</p>
+            </div>
+        </div>
+
+        <div id="sprache" class="box">
+            <h1>Sprachen</h1>
+            <div class="liste">
+                <p><strong>Deutsch</strong> - Schulniveau</p>
+            </div>
+            <div class="liste">
+                <p><strong>Englisch</strong> - Gutes Schulniveau</p>
+            </div>
+            <div class="liste">
+                <p><strong>Französisch</strong> - Nicht so stark</p>
+            </div>
+            <div class="liste">
+                <p><strong>Persisch</strong> - Muttersprache</p>
+            </div>
+        </div>
+
+        <div id="freizeit" class="box">
+            <h1>Freizeit & Interessen</h1>
+            <div class="liste">
+                <p><strong>Programmieren</strong> - Mit einem Freund programmieren</p>
+            </div>
+            <div class="liste">
+                <p><strong>Computerspiele</strong> - Mit Freunden Online-Games spielen</p>
+            </div>
+            <div class="liste">
+                <p><strong>Sport</strong> - Fussballteam: <a href="https://fcrj.ch/mannschaft/junioren-da/" style="color: #93c5fd;">DA Promotion</a></p>
+            </div>
+            <div class="liste">
+                <p><strong>Freunde</strong> - Mit Freunden draussen spazieren</p>
+            </div>
+        </div>
+
+        <div id="referenzen" class="box">
+            <h1>Referenzen</h1>
+            <div class="info">
+                <p><strong>Klassenlehrperson Oberstufe</strong><br>
+                Sonja Schumacher<br>
+                Tel: 079 615 68 20<br>
+                Email: <a href="mailto:sonja.schumacher@rj.sg.ch">sonja.schumacher@rj.sg.ch</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div id="kontakt" class="kontakt">
+        <div class="kontakt-box">
+            <h1>Kontakt</h1>
+            <div class="info">
+                <p><a href="mailto:mohammadxi.faizi@gmail.com">mohammadxi.faizi@gmail.com</a></p>
+            </div>
+            <div class="info">
+                <p>+41 78 220 62 01</p>
+            </div>
+            <div class="info">
+                <p>8640 St.Gallen Rapperswil-Jona</p>
+            </div>
+            <div class="links">
+                <p>
+                    <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+                </p>
+                <p>
+                    <img src="frame.png" alt="QR-Code Frame" class="qr">
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function scrollZuSektion(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
